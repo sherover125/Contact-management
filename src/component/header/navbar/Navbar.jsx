@@ -1,5 +1,5 @@
-import Search from "./content/Searchbox";
-import Logo from "./content/Logo";
+import Search from "./Searchbox";
+import Logo from "./Logo";
 
 function Navbar() {
 
