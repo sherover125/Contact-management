@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 const Addbtn = () => {
 	return (
 		<div className=" border-danger py-2  d-flex">
@@ -12,13 +12,10 @@ const Addbtn = () => {
 
 			</div>
 			<div className=" col-6  d-flex justify-content-center align-items-center">
-				<Link to='./email' className='btn btn-primary mx-1'>درباره برنامه</Link>
-				<Link to='./email' className='btn btn-primary mx-1'>لیست</Link>
-				<Link to='./email' className='btn btn-primary mx-1'>صفحه اصلی</Link>
+				<Link to='./about' className='btn btn-primary mx-1 '>درباره برنامه</Link>
+				<Link to='./email' className='btn btn-primary mx-1 disabled'>لیست</Link>
+				<Link to='./' className='btn btn-primary mx-1 '>صفحه اصلی</Link>
 			</div>
-
-
-
 		</div>
 	)
 }
