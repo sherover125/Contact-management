@@ -1,66 +1,56 @@
-import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
+import { NavLink, Outlet, useSearchParams, useLocation } from 'react-router-dom';
 import { getlist } from '../../data';
-import { search } from '../../helpers/search'
+import { search } from '../../helpers/search';
+export var x;
 const List = () => {
 	const list = getlist();
 	let [SearchParams, setSearchParams] = useSearchParams();
+	let location = useLocation();
 	return (
 		<div className="container  d-flex flex-wrap p-0 my-5 ">
 
-			<div style={{ borderLeft: "solid 2px red" }} className="col-sm-4 col-12 p-2 ">
+			<div style={{ borderLeft: "solid 2px red" }} className="col-sm-4 col-12 p-2">
 
-				<input type="text" placeholder='جستجوی مخاطب' className='form-control my-1'
+				<input type="text" placeholder='جستجوی مخاطب' className='form-control my-1 border border-danger'
 					onChange={event => {
 						let input = event.target.value;
 						if (input) {
 							setSearchParams({ input });
-							console.log(SearchParams.get("input"))
 						} else {
 							setSearchParams({});
-							console.log("input cleared")
 						}
-
 					}}
+					style={{
+						boxShadow: '0px 0px 15px red'
+					}}
+				>
+				</input>
 
-
-				></input>
-
-
-
-				{/* {list.filter(data => {
+				{list.filter(data => {
 					let filter = SearchParams.get("input");
-					if (!filter) return true;
-					let name = data.name;
+					if (filter) {
+						x = 1;
+						return data.name.startsWith(filter) || data.family.startsWith(filter);
+					} else {
+						x = 0;
+						return true;
+					}
+				})
+					.map(data => {
 
-					return name.startsWith(filter).map(data => {
 						return (
-							<NavLink to={`/list/${data.number}`} key={data.number} className='d-flex btn btn-dark my-2 '
+							<NavLink to={`/list/${data.number}${location.search}`} key={data.number} className='d-flex btn btn-dark my-2 '
 								style={({ isActive }) => {
 									return {
-										backgroundColor: isActive ? "red" : "",
+										backgroundColor: isActive ? "green" : "",
+										boxShadow: isActive ? "0px 0px 15px 5px green" : "",
+
 									}
 								}}>
 								{`${data.name} ${data.family}`}
 							</NavLink>
 						)
-					})
-
-				})
-
-				} */}
-
-				{list.map(data => {
-					return (
-						<NavLink to={`/list/${data.number}`} key={data.number} className='d-flex btn btn-dark my-2 '
-							style={({ isActive }) => {
-								return {
-									backgroundColor: isActive ? "red" : "",
-								}
-							}}>
-							{`${data.name} ${data.family}`}
-						</NavLink>
-					)
-				})}
+					})}
 
 			</div>
 

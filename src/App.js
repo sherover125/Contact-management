@@ -10,6 +10,8 @@ import About from './component/content/About';
 import List from './component/content/List';
 import Clist from './component/content/contact/Clist';
 import Error from './component/Error';
+import { x } from './component/content/List';
+console.log(x);
 const App = () => {
 	const [getcontacts, setcontacts] = useState([]);
 	const [preloader, getpreloader] = useState(true);
@@ -21,7 +23,7 @@ const App = () => {
 					<Route path='/about' element={<About />}></Route>
 					<Route path='/list' element={<List />} >
 						<Route index element={
-							<div className='container justify-content-center d-flex'>
+							< div className='container justify-content-center d-flex Sticky-top'>
 								<img src={require('./assets/clist.jpg')} alt="" className='w-75' style={{ opacity: '0.5', }} />
 							</div>
 						} />

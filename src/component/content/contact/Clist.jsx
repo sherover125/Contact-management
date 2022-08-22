@@ -7,7 +7,7 @@ const Clist = () => {
 
 	if (c) {
 		return (
-			<div className="p-5 m-2 " style={{
+			<div className="p-5 m-2  Sticky-top" style={{
 				borderRadius: '25px',
 				backgroundColor: '#a2d2ff'
 			}}>

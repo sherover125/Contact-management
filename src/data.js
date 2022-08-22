@@ -30,6 +30,37 @@ const list = [
 		family: "مومنی",
 		age: 20,
 	},
+	{
+		name: "خشایار",
+		number: 6,
+		family: "زارعی",
+		age: 21,
+	},
+	{
+		name: "نبی",
+		number: 7,
+		family: "توحیدی",
+		age: 50,
+	},
+	{
+		name: "محمد",
+		number: 8,
+		family: "پاشایی",
+		age: 43,
+	},
+	{
+		name: "رامین",
+		number: 9,
+		family: "زودفکر",
+		age: 8,
+	},
+	{
+		name: "زهرا",
+		number: 10,
+		family: "امیری",
+		age: 20,
+	},
+
 ];
 
 export const getlist = () => {
