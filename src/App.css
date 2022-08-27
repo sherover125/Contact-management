@@ -1,8 +1,11 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'vazirmatn/Vazirmatn-font-face.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+
 body {
   margin: 0;
-  font-family: -apple-system, 'vazir', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Vazirmatn, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: #8EC5FC;

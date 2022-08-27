@@ -17,7 +17,6 @@ const box = [
 const filter = box.filter(data => {
 	return data.number == 2;
 });
-console.log(filter[0]);
 
 
 

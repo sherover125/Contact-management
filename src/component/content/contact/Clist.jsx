@@ -11,10 +11,10 @@ const Clist = () => {
 				borderRadius: '25px',
 				backgroundColor: '#a2d2ff'
 			}}>
-				<p className="">  مخاطب شماره {params.cid}</p>
-				<p className="">نام: {c.name}</p>
-				<p className="">نشان: {c.family}</p>
-				<p className="">سن: {c.age}</p>
+				<p>  مخاطب شماره {params.cid}</p>
+				<p>نام: {c.name}</p>
+				<p>نشان: {c.family}</p>
+				<p>سن: {c.age}</p>
 
 			</div >
 		)
@@ -25,7 +25,7 @@ const Clist = () => {
 				borderRadius: '25px',
 				backgroundColor: '#a2d2ff'
 			}}>
-				<p className=""> مخاطب وجود ندارد</p>
+				<p> مخاطب وجود ندارد</p>
 
 			</div >
 		)

@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import Navbar from './component/header/navbar/Navbar';
-import Contacts from './component/content/contact/Contacts';
+import Contacts from './component/content/contact/contacts';
 import Addbtn from './component/header/btns/Addbtn';
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -10,8 +9,8 @@ import About from './component/content/About';
 import List from './component/content/List';
 import Clist from './component/content/contact/Clist';
 import Error from './component/Error';
-import { x } from './component/content/List';
-console.log(x);
+import './App.css';
+
 const App = () => {
 	const [getcontacts, setcontacts] = useState([]);
 	const [preloader, getpreloader] = useState(true);
