@@ -9,7 +9,9 @@ const List = () => {
 	const listFilter = data => {
 		let filter = SearchParams.get("input");
 		if (filter) {
-			return data.name.startsWith(filter) || data.family.startsWith(filter);
+			// return data.name.startsWith(filter) || data.family.startsWith(filter);
+			return (`${data.name} ${data.family}`).indexOf(filter) != -1
+
 		} else {
 			return true;
 		}

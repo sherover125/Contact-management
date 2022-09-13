@@ -3,17 +3,50 @@ import ReactDOM from 'react-dom/client';
 import Navbar from './component/header/navbar/Navbar';
 import Contacts from './component/content/contact/contacts';
 import Addbtn from './component/header/btns/Addbtn';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import About from './component/content/About';
 import List from './component/content/List';
 import Clist from './component/content/contact/Clist';
 import Error from './component/Error';
 import './App.css';
+import axios from 'axios';
 
 const App = () => {
+	const [preloader, setpreloader] = useState(false);
 	const [getcontacts, setcontacts] = useState([]);
-	const [preloader, getpreloader] = useState(true);
+	const [getgroup, setgroup] = useState([]);
+
+	useEffect(() => {
+
+		const fetchData = async () => {
+
+			try {
+
+				setpreloader(true);
+
+				let { data: contactdata } = await axios.get('http://localhost:9000/contacts');
+				let { data: groupsData } = await axios.get('http://localhost:9000/groups');
+
+				setcontacts(contactdata);
+				setgroup(groupsData);
+
+				console.log("دریافت دیتا از سرور", contactdata);
+
+				setpreloader(false);
+
+			} catch (err) {
+
+				console.log('مشکل دریافت دیتا');
+				setpreloader(false);
+
+			}
+		};
+
+		fetchData();
+
+	}, []);
+
 	return (
 		<>
 			<Routes>

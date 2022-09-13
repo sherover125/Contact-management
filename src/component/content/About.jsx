@@ -1,4 +1,6 @@
 import Lifecycle from '../Lifecycle';
+import Func_clock from '../Func_clock';
+
 const About = () => {
 	return (
 		<div className="justify-content-center d-flex flex-column container">
