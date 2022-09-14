@@ -18,16 +18,11 @@ const App = () => {
 	const [getgroup, setgroup] = useState([]);
 
 	useEffect(() => {
-
 		const fetchData = async () => {
-
 			try {
-
 				setpreloader(true);
-
 				let { data: contactdata } = await axios.get('http://localhost:9000/contacts');
 				let { data: groupsData } = await axios.get('http://localhost:9000/groups');
-
 				setcontacts(contactdata);
 				setgroup(groupsData);
 
@@ -36,10 +31,8 @@ const App = () => {
 				setpreloader(false);
 
 			} catch (err) {
-
 				console.log('مشکل دریافت دیتا');
 				setpreloader(false);
-
 			}
 		};
 
