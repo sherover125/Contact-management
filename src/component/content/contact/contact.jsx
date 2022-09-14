@@ -16,7 +16,7 @@ const Contact = ({ contacts }) => {
 
 							<ul className="list-group px-1">
 								<li className="list-group-item list-group-item-dark">
-									مخاطب شکاره:{"  "}
+									مخاطب شماره:{"  "}
 									<span className="fw-bold">{contacts.id}</span>
 								</li>
 								<li className="list-group-item list-group-item-dark">

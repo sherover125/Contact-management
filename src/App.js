@@ -11,6 +11,8 @@ import Clist from './component/content/contact/Clist';
 import Error from './component/Error';
 import './App.css';
 import axios from 'axios';
+import {getallcontact,
+	getallgroup} from './services/contactservices';
 
 const App = () => {
 	const [preloader, setpreloader] = useState(false);
@@ -19,14 +21,13 @@ const App = () => {
 
 	useEffect(() => {
 
+
 		const fetchData = async () => {
 
 			try {
-
 				setpreloader(true);
-
-				let { data: contactdata } = await axios.get('http://localhost:9000/contacts');
-				let { data: groupsData } = await axios.get('http://localhost:9000/groups');
+				let { data: contactdata } = await getallcontact();
+				let { data: groupsData } = await getallgroup();
 
 				setcontacts(contactdata);
 				setgroup(groupsData);
