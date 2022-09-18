@@ -10,31 +10,13 @@
       "id": 1
     },
     {
-      "fullname": "ایمان مدائنی",
-      "photo": "https://toplearn.com/img/user/teachers/15633_2402cc6d-1d17-6a22-e6cc-39e3248f13a4_%D8%A7%DB%8C%D9%85%D8%A7%D9%86_%D9%85%D8%AF%D8%A7%D8%A6%D9%86%DB%8C.jpg",
-      "mobile": "09121112425",
-      "email": "iman@madaeny.com",
-      "job": "برنامه نویس",
-      "group": "1",
-      "id": 2
-    },
-    {
-      "fullname": "ملیکا جوجو",
-      "photo": "",
-      "mobile": "0910000000",
-      "email": "meli.r@gmail.com",
-      "job": "student",
-      "group": "3",
-      "id": 3
-    },
-    {
       "fullname": "رامین زودفکر",
       "photo": "",
       "mobile": "09359608669",
       "email": "zoodfekr.r@gmail.com",
       "job": "developer",
       "group": "3",
-      "id": 4
+      "id": 2
     }
   ],
   "groups": [
@@ -60,3 +42,6 @@
     }
   ]
 }
+
+
+

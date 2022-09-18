@@ -11,6 +11,9 @@ import Clist from './component/content/contact/Clist';
 import Error from './component/Error';
 import './App.css';
 import axios from 'axios';
+import {getallcontact,getallgroup} from './services/contactservices';
+import Addcontact from './component/Addcontact';
+
 
 const App = () => {
 	const [preloader, setpreloader] = useState(false);
@@ -20,9 +23,11 @@ const App = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
+
 				setpreloader(true);
-				let { data: contactdata } = await axios.get('http://localhost:9000/contacts');
-				let { data: groupsData } = await axios.get('http://localhost:9000/groups');
+				let { data: contactdata } = await getallcontact();
+				let { data: groupsData } = await getallgroup();
+
 				setcontacts(contactdata);
 				setgroup(groupsData);
 
@@ -46,13 +51,18 @@ const App = () => {
 				<Route path='/' element={[<Navbar />]}>
 					<Route path='/' element={<Contacts contacts={getcontacts} preloader={preloader} />}></Route>
 					<Route path='/about' element={<About />}></Route>
+					<Route path='/add' element={<Addcontact />}></Route>
+
 					<Route path='/list' element={<List />} >
+
 						<Route index element={
 							< div className='container justify-content-center d-flex Sticky-top'>
 								<img src={require('./assets/clist.jpg')} alt="" className='w-75' style={{ opacity: '0.5', }} />
 							</div>
 						} />
+
 						<Route path='/list/:cid' element={<Clist />} />
+
 					</Route>
 
 				</Route>
