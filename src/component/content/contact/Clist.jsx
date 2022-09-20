@@ -24,7 +24,7 @@ const Clist = () => {
 				<p>  مخاطب شماره {params.cid}</p>
 				<p>نام: {c.name}</p>
 				<p>نشان: {c.family}</p>
-				<p>سن: {c.age}</p>
+				<p>سن: {c.test}</p>
 				<button className="btn btn-danger" onClick={btnfunc}>حذف مخاطب</button>
 			</div >
 
