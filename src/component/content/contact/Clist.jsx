@@ -33,9 +33,10 @@ const Clist = (props) => {
 				<p>شغل: {contact.job}</p>
 				<button className="btn btn-danger" >حذف مخاطب</button>
 			</div >
-
 		)
+
 	} else {
+
 		return (
 			<div className="p-5 m-2 " style={{
 				borderRadius: '25px',
@@ -46,5 +47,15 @@ const Clist = (props) => {
 			</div >
 		)
 	}
+
+
+
+
+
+
+
+
+
+
 }
 export default Clist;

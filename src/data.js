@@ -82,7 +82,6 @@ export const getc = (number) => {
 };
 
 
-
 export const clearc = (x) => {
 	list = list.filter((w) => w.number !== x)
 

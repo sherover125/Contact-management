@@ -5,9 +5,7 @@ const Addbtn = () => {
 
 			<div className=" col-6 d-flex justify-content-center">
 				<div className="justify-content-center  d-flex ">
-					<button className="btn btn-danger  rounded">افزودن مخاطبین
-						<i class="fa-solid fa-user-plus mx-2"></i>
-					</button>
+					<Link to='./add' className='btn btn-primary mx-1 rounded'><i class="fa-solid fa-user-plus mx-2"></i>افزودن مخاطبین</Link>
 				</div>
 
 			</div>
