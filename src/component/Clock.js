@@ -21,7 +21,7 @@ class Clock extends Component {
 
 		return (
 			<p className="text-white my-1 align-self-center" style={style}>
-				ساعت کنونی سیستم: {date.toLocaleTimeString()}
+				ساعت سیستم: {date.toLocaleTimeString()}
 			</p >
 		)
 	}
