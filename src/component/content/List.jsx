@@ -1,16 +1,40 @@
+import { useState,useEffect } from 'react';
 import { NavLink, Outlet, useSearchParams, useLocation } from 'react-router-dom';
 import { getlist } from '../../data';
+import {getallcontact,getallgroup} from '../../services/contactservices';
 
 const List = () => {
-	const list = getlist();
+
+
 	let [SearchParams, setSearchParams] = useSearchParams();
 	let location = useLocation();
+	const [contact, setcontact] = useState([]);
+	const [group, setgroup] = useState([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				let { data: contactdata } = await getallcontact();
+				let { data: groupsData } = await getallgroup();
+
+				setcontact(contactdata);
+				setgroup(groupsData);
+
+				console.log("دریافت دیتا از سرور", contactdata);
+
+			} catch (err) {
+				console.log('مشکل دریافت دیتا');
+			}
+		};
+		fetchData();
+	}, []);
+
+	// const list = getlist();
 
 	const listFilter = data => {
 		let filter = SearchParams.get("input");
 		if (filter) {
-			// return data.name.startsWith(filter) || data.family.startsWith(filter);
-			return (`${data.name} ${data.family}`).indexOf(filter) != -1
+			return (`${data.fullname}`).indexOf(filter) != -1
 
 		} else {
 			return true;
@@ -29,14 +53,14 @@ const List = () => {
 	const maplist = data => {
 
 		return (
-			<NavLink to={`/list/${data.number}${location.search}`} key={data.number} className='d-flex btn btn-dark my-2 '
+			<NavLink to={`/list/${data.id}${location.search}`} key={data.number} className='d-flex btn btn-dark my-2 '
 				style={({ isActive }) => {
 					return {
 						backgroundColor: isActive ? "green" : "",
 						boxShadow: isActive ? "0px 0px 15px 5px green" : "",
 					};
 				} }>
-				{`${data.name} ${data.family}`}
+				{`${data.fullname}`}
 			</NavLink>
 		);
 	};
@@ -53,7 +77,7 @@ const List = () => {
 				>
 				</input>
 
-				{list.filter(listFilter).map(maplist)}
+				{contact.filter(listFilter).map(maplist)}
 
 			</div>
 

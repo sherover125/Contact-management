@@ -15,13 +15,13 @@ export const getallgroup = () =>{
 
 //get contact
 export const getcontact =(contactid)=>{
-    const url=`${server_url}/contacts${contactid}`;
+    const url=`${server_url}/contacts/${contactid}`;
     return axios.get(url);
 }
 
 //update contact
 export const putcontact=(contactid,contact)=>{
-    const url=`${server_url}/:${contactid}`;
+    const url=`${server_url}/contacts/:${contactid}`;
     return axios.put(url,contact);
 }
 
@@ -33,6 +33,6 @@ export const postcontact=(contact)=>{
 
 //delete contacts
 export const deletecontact = (contactid) =>{
-    const url=`${server_url}/contactid`;
+    const url=`${server_url}/contacts/contactid`;
     return axios.delete(url);
 }

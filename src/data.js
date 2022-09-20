@@ -1,4 +1,4 @@
-
+import axios from "axios";
 let list = [
 	{
 		name: "رضا",
@@ -66,6 +66,15 @@ let list = [
 export const getlist = () => {
 	return list;
 };
+
+
+
+const server_url='http://localhost:9000';
+
+export const getallcontact = ()=>{
+	const url=`${server_url}/contacts`;
+	return axios.get(url);
+	}
 
 export const getc = (number) => {
 	return list.find((c) => c.number === number);

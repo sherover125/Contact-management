@@ -1,31 +1,37 @@
 // import { clear } from "@testing-library/user-event/dist/clear";
+import { useEffect } from "react";
+import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getc, clearc } from '../../../data';
+import { getcontact } from "../../../services/contactservices";
 
-const Clist = () => {
+const Clist = (props) => {
 	const params = useParams();
-	const c = getc(parseInt(params.cid));
+	const [contact, setcontact] = useState(null);
+	// const c = getc(parseInt(params.cid));
 	const Navigate = useNavigate();
 
-	if (c) {
-		const btnfunc = () => {
-			clearc(c.number);
-			Navigate('/list');
-		};
+	useEffect(() => {
+		getcontact(params.cid)
+			.then(r => setcontact(r.data))
+			.catch(e => alert('خطا'));
+	}, [params]);
+	// useEffect(() => {(async () => {
+	// 	setcontact((await getcontact(params.cid)).data);
+	// })()}, [params]);
 
-		const style = {
-			borderRadius: '25px',
-			backgroundColor: '#a2d2ff'
-		};
 
+
+
+	if (contact) {
 		return (
 
-			<div className="p-5 m-2  Sticky-top" style={style}>
+			<div className="p-5 m-2  Sticky-top" >
 				<p>  مخاطب شماره {params.cid}</p>
-				<p>نام: {c.name}</p>
-				<p>نشان: {c.family}</p>
-				<p>سن: {c.test}</p>
-				<button className="btn btn-danger" onClick={btnfunc}>حذف مخاطب</button>
+				<p>نام: {contact.fullname}</p>
+				<p>موبایل: {contact.mobile}</p>
+				<p>شغل: {contact.job}</p>
+				<button className="btn btn-danger" >حذف مخاطب</button>
 			</div >
 
 		)
